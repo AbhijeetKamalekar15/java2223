@@ -1,0 +1,92 @@
+Multithreading is a conceptual programming paradigm where a program(process) is divided into two or more subprograms, which can
+be implemented at the same time in parallel. e.g. once a program can display an animation on the screen while another may built 
+next animation to be displayed. This is something similar to dividing a task into subtask and asigning them to different people 
+for execution independentely and simultaneously. 
+    In most of our computers we have only a single processer and therefore in reality the processor is doing only ont thing at a 
+time. However the processor switches between the processes so fast that it appears to human beings that all of them are being 
+done simultaneously. 
+    Java programs that we have seen and discussed so far contain only a single sequencial flow of control. This is what happens 
+when we execute a normal program. The program begins, runs to a sequence of execution and finally ends. At any given point of 
+time there is only one statement under execution.
+    A thread is similar to a program that has a single flow of control. It has a begining, a body and a end and execute the
+commands sequencially. All main programs in our single threaded. 
+    A unique property of java is its support for Multithreading that is java enables us to use multiple flows of control 
+indeveloping programs. Each flow of control may thought of seperate tiny program known as thread that runs in parallel to 
+others. A program that contains multiple flows of control is known as multithreaded programs. If a java program with four thread 
+one main and three others the main thread is actually the main method module which is design to create and start the other three 
+threads namely A, B and C. Once intiated by the main thread the threads A,B and C run concurrently and share the resoureces 
+jointly the ability of language to support multithreads is reffered to as concurrency. Sice threads in java are sunprograms of a
+main application program and share the same memory space, they are known as light-weigth processes.
+    It is important to remember that threads running in parallel does not really mean that they actually run at the same time. 
+Since all the threads are running on the single processor the flow of execution is shared between the threads. The java 
+interpreter handles switching of control between the threads in such a way that it appears they are running concurrently
+
+//Creating threads
+Thread creation is simple in java. The threads are implemented in the forms of objects that a contain a method run(). The run 
+method is heart and soul of any thread. It mix up the entire body of the thread and is the only method threads behaviour can be 
+implemented. Following is the general format for a run method:
+    public void run()
+    {
+        ----;
+        ----;
+    }
+
+14/09/2022->
+    The run method should be invoked by an object of a concered thread. This can be achieved by creating a thread and initiating 
+it with the help of another thread method called start.
+    A Thread can be created in two ways:
+1.By creating a thread class - Define a class that extends thread class and override its run method with the code required by 
+  the thread.
+2.By converting a class to a thread - Define a class that implements Runable interface. The Runable has only one method run,
+  that is to be defined in the method with the code to be executed by the thread.
+
+
+
+
+
+1.Declare the class as implementing the runnable interface.
+2.Implement the run method.
+3.Create a thread by defining an object that is instantiated from this runnable class as the target of the thread.
+4.Call the thread's start method to run the thread.
+
+Life Cycle of a Thread:
+During the life time of a thread, there are many states it can enter they include
+1.New born State
+2.Runnable State
+3.Running State
+4.Blocked State
+5.Dead State
+
+1.New Born State:
+    When we create a thread object the thread is born and is said to be in new born state. The thread is not yet shedueled for
+running. At this state we can do one of the following things with it.
+i)sheduele it for running it using start method.
+ii)Kill it using stop method.
+If shedueled it moves to the runnable state.if we attemp to use any other methodat this stage an exception will be thrown.
+
+2.Runnable State:
+    The runnable state means that the thread is ready for execution and is waiting for the availability for the processor. That
+is the thread has joined the queue of threads that are waiting for execution. If all threads have equal priority then they are 
+given time slots for execution in round robin fashion, i.e.FIFO(First in first out). The thread that relinkwishes control joins
+the queue at the end and again waits for its turn. This process of assigning time to the threads is known as time time slicing.
+However if we want a thread to relinkwish control to another thread to equal priority before its turn comes, we can do so by using the yeild method.
+
+3.Running State:
+    Running means that the processor has given its time to the thread for its execution. The thread runs until its relinkwishes
+control on its own or it is pre-empted by a higher thread. A Running thread may relinkwish its control in one of the following 
+situations:
+a) It has been suspended using suspend method. A suspended thread can be reviewed by the resume method. This approach is usefull
+   when we want to suspend a thread for some time due to certain reason but do not want to kill it.
+b) It has been to sleep. We can put a thread to sleep for a specified time peroid using the method sleep(time), where time is in 
+milliseconds. This means that the thread is out of the queue during the time period. The thread reenters the runnable state as
+soon as this time period is elapsed.
+c)It has been told to wait until some event occurs. This is done using wait method. The thread can be shedueled to run again using notify method.
+
+4.Blocked State:
+    A thread is said to be blocked when it preventing from entering into the runnable state and subsequentely the running state.
+This happens when the thread is suspended, sleeping or waiting in order to satisfy. A blocked state is considered not runnable 
+but not dead and therefore, fully qualified to run again.
+
+5.Dead State:
+    Every thread has a life cycle. A running thread ends its life when it has completed executing the run method. It is natural
+death. However we can kill it by sending stop message to it at any state thus causing a pre-mature death to it.

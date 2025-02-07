@@ -1,0 +1,32 @@
+/*
+ * Applets Life Cycle:
+ *       Every Java applet inherites a set of default behaviors from the applet class. As a result when an applet is loaded it undergoes
+ * a series of changes in its state. The applet state include 1)Initialization state 2)running state 3)ideal state 4)dead State
+ * 1)Initialization State:
+ *       Applet Enters the initialization state when it is first loaded. This is achieved by calling the init method of applet class.
+ *   The applet is born at this stage we may do following things if required:1.Create objects needed by the applet 2.Setup initial 
+ *   values 3.Load images or fonts 4.setup colors. The initialization only occur once in the applet life cycle. To provide any of the
+ *   behaviours mentioned above we must override the init method.
+ * 2)Running State:
+ *      Applet Enters the running state when the system calls the start method of the applet class. This occurs automatacally after
+ * the applet is initialized. Starting can also occur if the applet is already in stoped state. Unlike init method the start method can
+ * may be called more than once. We may override the start method to crete a thread 
+ * 3)Ideal or stoped Sate:
+ *      An applet becomes ideal when it is stoped from running . Stoping occurs automatically when we leave the page containing the 
+ * currently running applet. We can also do by calling the stop method explicitly. If we use a threat to run the applet, then we must
+ * use stop method to terminate the tread. We can achieve this by overriding the stop method
+ * 4)Dead State:
+ *      An applet is said to be dead when it is removed from memory. This occurs automatically by invoking the distroy method when
+ * we quit the browser. Like initialization destroy state occurs only once in the apllets life cycle. If the applet has craeted any
+ * resources like threds fonts we may override the destroy method to clean up these resources.
+ * 5)Display State:
+ *      Applet moves to the display state whenever it has to perform some output operations on the screen. this happens immediatialy
+ * after the applet enter the                    The paint method is called to accomplish this task. Almost every
+ * 
+ * The default version of the paint method does nothing.We must therefore override the method if we want anything to be displayed on
+ *  the screen
+ *      It is to be noted that the display state is not considered as a part of applet life cycle. infact the paint mehod is defined
+ * int the applet class. It is inherited from the component class, a super class of applet.
+ 
+ * 
+ */

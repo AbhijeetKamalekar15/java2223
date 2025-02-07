@@ -1,0 +1,16 @@
+A file is a collection of related records placed in a particular area on the disk. A record is composed of several finds and a groups and a field is a group of characters. Characters in java are unicode characters composed of 2 bytes
+    Storing and managing data using files is known as file processing which includes tasks such as creating files, updating files and manupalation of data. Java supports many powerful features for managing input and output of data using files. Reading and writing of data in a file can be done at the level of bytes or characters or fields depending on the requirements of the particular application. Java also provide capabilities to read and rigth class objects directly. Note that the records may representated as a class object in java. The process of reading and wrinting objects is called Object Serialization.
+
+Concept of Streams:
+    In file processing the input refers to the flow of data into the program and output refers to the flow of data out of a program. The input may come from keyboard, mouse, memory, disk, network or another program. Similarly output from a program may to the screen printer memory disk network or another program Although this devices look very different at the jhardware level, they share certain common characteristics such as unidirectional moment of data, treating data as sequence of bytes or characters and support to the sequencial access to the data.
+    A Stream in Java is a path, A uniform easy to use object oreinted interface between the program and i/o devices, along which data flows. It has a source and a destination and both may be. Physical devices or programs or other streams in the same program.
+    The Java Streams are classified into two basic types: Namely input Stream and output streams
+    An Input Stream extracts data from the source(reading). Similary Output Stream takes data from the program and sends it to the destination.
+
+    Stream Classes:
+    The java.io packege contains           that provide capabilities for processing all types of data. These catagories are divi
+    based on the datatype on which they operate:
+    1.Byte stream classes that provide supports for handling io  operations on byte
+    2.Characters in classes that supports for handling operations on characters
+
+    

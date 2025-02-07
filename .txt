@@ -1,0 +1,22 @@
+Packages are java's way of grouping variety of classes interfacing togetther the grouping is usualy done according to functionality in fact packages acts as a container for a classes by organizing our classes into packages we achieve following benefits
+1.The classes contained in the packages of another programs can be easily reused.
+2.In packages classes can be unique compared with classes in other packages,i.e., two different classes in two different packages can have the same name they may be refered by there fully qualified name comprizing the package name and the class name.
+3.Packes provide the way to hide xlasse sthus preventing other programs all packages from accesssing  classes that are meant for interbal use only. 
+4.Packages also provide a way for separating design from coding.
+    For most applications we will need to use to different sets of classes, one for the internal representation of programs and the other for external representations.The Java packages are classified into two types the first category is known as Java API packages and the second is known as user difined packages.
+    The Java API provides a large number of classes grouped into different packages according to functionality. Most oof the time we use packages available with the Java API. There are Two ways of accessing the classes stored in a package the first approach is to use the fully qualified class name of the class that we want to use. Thsi is done by using the package name contaning the class and then appending the class name to it using the dot operator.
+    e.g.java.io.bufferedreader
+    Notice that io is a package within the package Java there heirarchi is representing the levels with dots. This approach is perhaps the best and the easiest one if we need to access the class only once or when we need not have to access any classes of the package. But in many situations we might want to use class in a number of places in the program or we may like to use many of the classes containedin a package. We may achieve this easily as follows:
+    e.g.import package_name.class_name;
+    or import package_name.*;
+    The first approach allows the specified class in the specified package to be imported.
+    e.g import java.io.bufferedreader;
+    This statement imports the class bufferedreader and therefore the classname can be directly used int he program. The second approach imports every class contained in the specified package.
+    e.g. java.io.*;
+This will bring java.io package.
+
+Package Creation:
+    First declared the name of the package using th package keyword followed by package name. This must be first statement in java source file the we define a class just as we normally define a class with access specifier public.
+    e.g. our package name is mypkg
+    The class Util is now considered a part of this package. The listing would be saved as a file called Util.java and located in directery named mypkg. When the source file is compiled java will create a dot class file and store it in a smae directory. Remember that the dot class files must be located.in a derectory that has the same name as the package and this directory should be a subdorectory of the directory wher classes that import the package are located. Java also supports the concept of package heirarcy.
+    A Java package file can have more than one class definitions. In such cases only one of the classes may be declared public and that class name with .java extention is the source file name. When a source file with more than one class file definitions is compiled, java creates a independent class file for those classes.

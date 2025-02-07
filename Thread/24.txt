@@ -1,0 +1,32 @@
+Synchronization:
+    When two or more threads need access to a shared resource, they need some way to ensure that the resource will be used by 
+only one thread at a time. The process by which this is achieved is called Synchronization. Java provides unique language level 
+support for it.
+    Key to synchronization is the concept of monitor. A monitor is an object that is used as a mutually exclusive lock. Only one
+thread can own a monitor at a given time. When a thread acquires a lock, it is said to have entered the monitor. All Other 
+threads attempting to enter the locked monitor will be suspended until the first thread exits the monitor. These other threads 
+are said to be waiting for the monitor. A thread that owns a monitor can re-enter the same monitor if it so desire.
+    We can synchronize our code in either of two ways both involve the use of the synchronized keyword. 
+
+1) Using Synchronized Methods:
+    Synchronization is easy in java, beacause all objects have there own implicit monitor associated with them. To enter an 
+objects monitor just call a method that has been modified with the synchronized keyword. While a thread is inside a synchronized 
+method all other threads that try to call it on the same instance have to wait. To exit the monitor and relinkwish control of 
+the object to the next waiting thread, the owner of the monitor simply returns from the synchronized method. 
+2) The Synchronized Statement
+    While creating synchronized methods within classes that we have created is an easy and effective means of achieving 
+synchronization, it will not work in all cases. To understand why, consider the following:
+imagine that we want to synchronize access to objects of a class that was not designed for multithreaded access. i.e. the class 
+not use the Synchronized methods. Further this class is not created by us but by a third party and we do not access to the 
+source code. Thus we cant add synchronized keyword to appropriate methods within the class. How can access to an object of this 
+class be synchronized ?
+The solution to this problem is quit easy. Simply put calls to the method defined by this class inside a synchronized block.
+Following is the general of the synchronized statement:
+    synchronized(obj)
+    {
+        //call to method
+    }
+Here obj is a reference to the object being synchronized. A synchronized block ensures that a call to method that is member of 
+obj occurs only after current thread has successfully entered the objs monitor.
+
+Inter thread communication:
